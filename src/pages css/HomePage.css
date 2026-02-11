@@ -1,0 +1,32 @@
+.home{
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url('/resize.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.home .container{
+  padding-top: 150px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.home h1{
+  margin: 0;
+  padding-top: 0;
+  font-size: 45px;
+}
+
+
+.home p {
+    margin-top: 12px;
+    font-size: 25px;
+    width: 60%;
+}
+
+.home h2 {
+    text-align: center;
+    font-size: 30px;
+}

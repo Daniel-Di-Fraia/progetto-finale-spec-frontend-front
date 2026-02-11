@@ -18,5 +18,10 @@ html, body {
   padding: 0;
 }
 
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
 
 
