@@ -1,3 +1,4 @@
+//importo il relativo css
 import '../pages css/HomePage.css'
 
 function HomePage() {

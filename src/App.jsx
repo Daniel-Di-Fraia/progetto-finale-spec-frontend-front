@@ -12,11 +12,16 @@ import PopularVideogames from './pages/PopularVideogames';
 import Contattaci from './pages/Contattaci';
 import Preferiti from './pages/Preferiti';
 
+//importiamo il provider
+import { VideogamesProvider } from './context/VideogamesContext';
+
 function App() {
 
 
   return (
     <>
+      {/* avvolgo tutto app per rendere disponibili i dati in context */}
+      <VideogamesProvider>
         {/* rotte applicazione */}
         <BrowserRouter>
           <NavBar />
@@ -28,6 +33,7 @@ function App() {
             <Route path="/preferiti" element={<Preferiti />} />
           </Routes>
         </BrowserRouter>
+      </VideogamesProvider>
     </>
   )
 }

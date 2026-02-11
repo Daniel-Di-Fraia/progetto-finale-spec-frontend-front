@@ -1,4 +1,4 @@
-//import per css
+//importo il relativo css
 import "../components css/NavBar.css";
 
 //importiamo navlink da react router dom
@@ -11,7 +11,7 @@ function NavBar() {
         <>
             <header className="header-flex">
                 <NavLink to="/">
-                    <img src="public\logo-strk.png" alt="logo" id="logo" />
+                    <img src="/logo-strk.png" alt="logo" id="logo" />
                 </NavLink>
                 <ul className="nav-list">
                     <li>
