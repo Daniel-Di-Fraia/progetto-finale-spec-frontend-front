@@ -1,0 +1,20 @@
+.single-card{
+    background: rgba(43, 7, 67, 0.6);
+    border: 1px solid rgb(87, 1, 87);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 487px;
+    height: 140px;
+    color: white;
+}
+
+.single-card h2 {
+    margin-right: 20px;
+    font-size: 27px;
+}
+
+.single-card h3 {
+    margin-right: 20px;
+    font-size: 20px;
+}

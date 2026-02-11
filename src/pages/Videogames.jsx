@@ -23,40 +23,79 @@ function debounce(callback, delay) {
 
 function Videogames() {
 
+  //prendiamo dati dal context
   const { videogames } = useVideogames();
 
   //variabile di stato per ricerca
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-  const debounceSearch = useCallback(debounce(setSearch, 500));
+  const debounceSearch = useCallback(debounce(setSearch, 500), []);
 
-  //array filtrato per ricerca
+  //variabile di stato per filtro categoria
+  const [category, setCategory] = useState("")
+
+  const categoryChange = (e) => {
+    setCategory(e.target.value);
+  }
+
+  //array filtrato per ricerca e filtro genere
   const filteredVideogames = useMemo(() => {
+    //normaliziamo input per il controllo
     const query = search.trim().toLowerCase();
-    if (!query) return videogames;
+    const genre = category.trim().toLowerCase();
 
-    return videogames.filter((game) =>
-      (game.title || "").toLowerCase().includes(query)
-    );
-  }, [videogames, search]);
+    //scorriamo l array di giochi e lo filtriamo
+    return videogames.filter((game) => {
+
+      //normaliziamo i campi del gioco per il controllo
+      const title = (game.title || "").toLowerCase();
+      const gameGenre = (game.category || "").toLowerCase();
+
+      //condizioni per far passare un gioco e/o un genere
+      const matchSearch = !query || title.includes(query);
+      const matchGenre = !genre || gameGenre.includes(genre);
+
+      //risultato finale che deve rispettare entrambi 
+      return matchSearch && matchGenre;
+    });
+  }, [videogames, search, category]);
+
 
 
   return (
     <>
-      <section className='container'>
-        <h1>Lista Giochi</h1>
-        <input
-          type="text"
-          placeholder="Cerca un videogioco.."
-          onChange={(e) => debounceSearch(e.target.value)}
-          className="search-input"
-        />
+      <section className='allgames'>
+        <div className="container">
+          <h1>Lista Giochi</h1>
 
+          {/* barra di ricerca per cercare un gioco specifico */}
+          <input
+            type="text"
+            placeholder="Cerca un videogioco.."
+            onChange={(e) => debounceSearch(e.target.value)}
+            className="search-input"
+          />
+
+          {/* select per filtrare la categoria */}
+          <span className="select-wrap">
+            <select value={category} onChange={categoryChange}>
+              <option value="">-Scegli genere-</option>
+              <option value="soulslike">Soulslike</option>
+              <option value="rpg">RPG</option>
+              <option value="action">Action</option>
+              <option value="platform">Platform</option>
+              <option value="metroidvania">Metroidvania</option>
+            </select>
+          </span>
+
+          <div className="cards">
             {/* passo il nuovo array filtrato */}
             {filteredVideogames.map((game) => (
-              // Passo l oggetto card videogame specifico come prop
+              //passo l oggetto card videogame specifico come prop
               <VideogameCard key={game.id} game={game} />
             ))}
+          </div>
+        </div>
       </section>
     </>
   )

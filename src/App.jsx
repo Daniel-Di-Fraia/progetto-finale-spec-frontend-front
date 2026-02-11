@@ -11,6 +11,7 @@ import Videogames from './pages/Videogames';
 import PopularVideogames from './pages/PopularVideogames';
 import Contattaci from './pages/Contattaci';
 import Preferiti from './pages/Preferiti';
+import VideogameDetails from './pages/VideogameDetails';
 
 //importiamo il provider
 import { VideogamesProvider } from './context/VideogamesContext';
@@ -28,6 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/videogames" element={<Videogames />} />
+            <Route path="/videogames/:id" element={<VideogameDetails />} />
             <Route path="/popular-videogames" element={<PopularVideogames />} />
             <Route path="/contattaci" element={<Contattaci />} />
             <Route path="/preferiti" element={<Preferiti />} />

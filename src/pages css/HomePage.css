@@ -5,6 +5,7 @@
     url('/resize.webp');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .home .container{

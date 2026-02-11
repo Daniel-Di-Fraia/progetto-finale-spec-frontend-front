@@ -11,15 +11,14 @@ const VideogameCard = memo(function VideogameCard({ game }) {
 
     return (
         <>
-            <section>
-                <div>
-                    <img src={game.image} alt={game.title}/>
-                </div>
-                <div>
-                    <h2>{game.title}</h2>
-                    <h3>{game.category}</h3>
-                </div>
-            </section>
+            <Link className="single-card" to={`/videogames/${game.id}`}>
+                <section>
+                    <div>
+                        <h2>{game.title}</h2>
+                        <h3>{game.category}</h3>
+                    </div>
+                </section>
+            </Link>
         </>
     );
 });
