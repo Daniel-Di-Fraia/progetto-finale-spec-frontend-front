@@ -86,4 +86,37 @@
   box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
 }
 
+/* bttone per l ordinamento a-z */
+.sort-btn{
+  height: 44px;
+  padding: 10px 14px;
+  margin-left: 12px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .05s ease;
+}
+
+.sort-btn:hover{
+  border-color: rgba(255,255,255,0.28);
+  background: rgba(0,0,0,0.45);
+}
+
+.sort-btn:active{
+  transform: translateY(1px);
+}
+
+.sort-btn:focus{
+  outline: none;
+  border-color: rgba(160, 120, 255, 0.75);
+  box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
+}
+
+
 

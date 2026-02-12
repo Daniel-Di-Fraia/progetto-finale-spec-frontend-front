@@ -38,6 +38,9 @@ function Videogames() {
     setCategory(e.target.value);
   }
 
+  //variabile di stato per filtro ordine alfabetico
+  const [alphSortOrder, setAlphSortOrder] = useState("az");
+
   //array filtrato per ricerca e filtro genere
   const filteredVideogames = useMemo(() => {
     //normaliziamo input per il controllo
@@ -45,7 +48,7 @@ function Videogames() {
     const genre = category.trim().toLowerCase();
 
     //scorriamo l array di giochi e lo filtriamo
-    return videogames.filter((game) => {
+    const filtered = videogames.filter((game) => {
 
       //normaliziamo i campi del gioco per il controllo
       const title = (game.title || "").toLowerCase();
@@ -58,7 +61,13 @@ function Videogames() {
       //risultato finale che deve rispettare entrambi 
       return matchSearch && matchGenre;
     });
-  }, [videogames, search, category]);
+
+    const alphSorted = [...filtered].sort((a, b) =>
+      (a.title || "").localeCompare(b.title || "")
+    );
+
+    return alphSortOrder === "az" ? alphSorted : alphSorted.reverse();
+  }, [videogames, search, category, alphSortOrder]);
 
 
 
@@ -86,6 +95,13 @@ function Videogames() {
               <option value="platform">Platform</option>
               <option value="metroidvania">Metroidvania</option>
             </select>
+          </span>
+
+          {/* button per mettere i giochi in ordine alfabetico */}
+          <span>
+            <button type="button" className="sort-btn" onClick={() => setAlphSortOrder((prev) => (prev === "az" ? "za" : "az"))}>
+              Ordine: {alphSortOrder === "az" ? "A → Z" : "Z → A"}
+            </button>
           </span>
 
           <div className="cards">
