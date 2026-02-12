@@ -18,7 +18,7 @@
 }
 
 .info-game {
-    background: rgba(43, 7, 67, 0.4);
+    background: rgba(43, 7, 67, 0.6);
     border-radius: 15px;
     height: 400px;
     width: 520px;
@@ -28,4 +28,29 @@
 .info-game p {
     font-size: 20px;
     padding: 0px 10px;
+}
+
+#add-preferiti{
+    font-size: 35px;
+    background: none;
+    border: none;
+}
+
+.add-it{
+    margin-bottom: 10px;
+}
+
+.descr{
+    font-size: 30px;
+}
+
+.description{
+    margin-left: 210px;
+    margin-top: 40px;
+    font-size: 20px;
+    width: 40%;
+}
+
+.pad-det{
+    padding-bottom: 50px;
 }

@@ -21,7 +21,7 @@ function NavBar() {
                     </li>
                     <li>
                         <NavLink to="popular-videogames" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
-                            Giochi popolari
+                            Console più popolari
                         </NavLink>
                     </li>
                     <li>

@@ -58,26 +58,43 @@ const VideogameDetails = () => {
 
   return (
     <>
-    <section className="container">
-      <div className="detail-section detail-flex">
-        <div>
-          <img src={videogame.image} alt={videogame.title} />
+      <section
+        style={{
+          backgroundImage: `
+          linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+          url(${videogame.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: 650,
+        }}
+      >
+        <div className="container pad-det">
+          <div className="detail-section detail-flex">
+            <div>
+              <img src={videogame.image} alt={videogame.title} />
+            </div>
+            <div className="info-game">
+              <h1>{videogame.title}</h1>
+              <h2>Genere: {videogame.category}</h2>
+              <p><strong>Valutazione:</strong> {videogame.review}</p>
+              <p><strong>Data di rilascio:</strong> {videogame.releaseDate}</p>
+              <p className="add-it"><strong>Aggiungilo ai preferiti!</strong></p>
+              <button id="add-preferiti">&#10084;</button>
+            </div>
+          </div>
+          <div className="description">
+            <strong className="descr">Descrizione:</strong>
+            <p>{videogame.description}</p>
+            <strong className="descr">Sviluppatore:</strong>
+            <p>{videogame.sviluppatore}</p>
+          </div>
         </div>
-        <div className="info-game">
-          <h1>{videogame.title}</h1>
-          <h2>Genere: {videogame.category}</h2>
-          <p><strong>Valutazione:</strong> {videogame.review}</p>
-          <p><strong>Data di rilascio:</strong> {videogame.releaseDate}</p>
-          <p><strong>Aggiungilo ai preferiti!</strong></p>
-          <div>⭣</div>
-          <div>&#10084;</div>
-        </div>
-      </div>
-      <strong>Descrizione:</strong>
-      <p>{videogame.description}</p>
       </section>
     </>
   )
 }
 
 export default VideogameDetails
+
+
