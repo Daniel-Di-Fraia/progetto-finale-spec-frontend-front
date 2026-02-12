@@ -1,0 +1,31 @@
+.detail-section {
+    padding-top: 400px;
+}
+
+.detail-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.detail-flex img {
+  width: 700px;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.info-game {
+    background: rgba(43, 7, 67, 0.4);
+    border-radius: 15px;
+    height: 400px;
+    width: 520px;
+    text-align: center;
+}
+
+.info-game p {
+    font-size: 20px;
+    padding: 0px 10px;
+}

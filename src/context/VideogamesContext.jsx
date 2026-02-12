@@ -13,7 +13,7 @@ const VideogamesProvider = ({ children }) => {
     const [videogames, setVideogames] = useState([]);
     const [error, setError] = useState(null);
 
-    //funzione per chiamata api
+    //funzione per chiamata api di tutti i giochi
     async function fetchVideogames() {
 
         try {
