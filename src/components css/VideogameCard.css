@@ -17,4 +17,18 @@
 .single-card h3 {
     margin-right: 20px;
     font-size: 20px;
+    display: inline;
+}
+
+#prefe-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.genre-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

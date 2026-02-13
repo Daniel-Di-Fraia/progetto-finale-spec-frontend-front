@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 //import di useEffect e UseState
 import { useState, useEffect } from "react";
 
+//import del context per i preferiti
+import { useFavoriteVideogames } from "../context/FavoriteVideogamesContext";
+
 //importo il relativo css
 import "../pages css/VideogameDetails.css"
 
@@ -23,6 +26,10 @@ const VideogameDetails = () => {
 
   //variabile di stato per il caricamento
   const [isLoading, setIsLoading] = useState(true);
+
+  // Uso l'hook del context dei preferiti
+  const { isFavorite, toggleFavorite } = useFavoriteVideogames();
+
 
   //funzione per la chiamata al singolo gioco
   async function fetchSingleVideogame() {
@@ -80,8 +87,11 @@ const VideogameDetails = () => {
               <p><strong>Valutazione:</strong> {videogame.review}</p>
               <p><strong>Data di rilascio:</strong> {videogame.releaseDate}</p>
               <p className="add-it"><strong>Aggiungilo ai preferiti!</strong></p>
-              <button id="add-preferiti">&#10084;</button>
+              <button id="add-preferiti" onClick={() => toggleFavorite(videogame.id)}>
+                {isFavorite(videogame.id) ? "❤️" : "🤍"}
+              </button>
             </div>
+
           </div>
           <div className="description">
             <strong className="descr">Descrizione:</strong>
@@ -96,5 +106,3 @@ const VideogameDetails = () => {
 }
 
 export default VideogameDetails
-
-

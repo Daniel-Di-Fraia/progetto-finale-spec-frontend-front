@@ -104,13 +104,16 @@ function Videogames() {
             </button>
           </span>
 
-          <div className="cards">
-            {/* passo il nuovo array filtrato */}
-            {filteredVideogames.map((game) => (
-              //passo l oggetto card videogame specifico come prop
-              <VideogameCard key={game.id} game={game} />
-            ))}
-          </div>
+
+          {filteredVideogames.length === 0 ? (
+            <p>Nessun gioco trovato.</p>
+          ) : (
+            <div className="cards">
+              {filteredVideogames.map((game) => (
+                <VideogameCard key={game.id} game={game} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

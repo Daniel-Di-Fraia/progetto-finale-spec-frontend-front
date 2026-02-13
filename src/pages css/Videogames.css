@@ -24,6 +24,10 @@
     padding-top: 30px;
 }
 
+.allgames p {
+  font-size: 30px;
+}
+
 /* input per searchbar */
 .search-input{
   width: min(520px, 100%);

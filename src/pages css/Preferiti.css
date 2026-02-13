@@ -1,0 +1,99 @@
+.pad-prefe {
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.bkg-prefe {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
+        url('/resize.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.single-prefe {
+    background: rgba(43, 7, 67, 0.6);
+    border: 1px solid rgb(87, 1, 87);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 487px;
+    height: 140px;
+    color: white;
+}
+
+.pad-prefe h1 {
+    font-size: 45px;
+}
+
+.single-prefe h2 {
+    margin-right: 20px;
+    font-size: 27px;
+    color: white;
+}
+
+.single-prefe h3 {
+    margin-right: 20px;
+    font-size: 20px;
+    display: inline;
+    color: white;
+}
+
+#prefe-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.prefe-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.info-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prefe-flex p {
+    font-size: 30px;
+}
+
+/* bottone per svuotare preferiti */
+.clear-fav-btn {
+    height: 44px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .05s ease;
+}
+
+.clear-fav-btn:hover {
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.clear-fav-btn:active {
+    transform: translateY(1px);
+}
+
+.clear-fav-btn:focus {
+    outline: none;
+    border-color: rgba(160, 120, 255, 0.75);
+    box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
+}
