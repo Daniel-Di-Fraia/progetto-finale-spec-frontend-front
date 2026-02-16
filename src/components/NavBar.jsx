@@ -15,22 +15,22 @@ function NavBar() {
                 </NavLink>
                 <ul className="nav-list">
                     <li>
-                        <NavLink to="videogames" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
+                        <NavLink to="/videogames" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
                             Tutti i giochi
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="popular-videogames" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
+                        <NavLink to="/popular-videogames" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
                             Console più popolari
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="contattaci" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
+                        <NavLink to="/contattaci" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
                             Contattaci
                         </NavLink>
                     </li>
                 </ul>
-                <NavLink to="preferiti" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
+                <NavLink to="/preferiti" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
                     <div id="pref">&#10084;</div>
                 </NavLink>
             </header>

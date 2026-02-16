@@ -97,3 +97,134 @@
     border-color: rgba(160, 120, 255, 0.75);
     box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
 }
+
+.compare-btn{
+  height: 44px;
+  padding: 10px 14px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  min-width: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  flex: 0 0 auto;
+
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .05s ease;
+}
+
+.compare-btn:hover{
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.compare-btn:active{
+  transform: translateY(1px);
+}
+
+.compare-btn:focus{
+  outline: none;
+  border-color: rgba(160, 120, 255, 0.75);
+  box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
+}
+
+.compare-btn:disabled{
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+
+.prefe-layout{
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.prefe-list-vertical{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.prefe-list-vertical p {
+  font-size: 25px;
+}
+
+.prefe-subtitle{
+  color: white;
+  margin: 10px 0 16px;
+}
+
+.prefe-actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prefe-right{
+  position: sticky;
+  top: 140px;
+}
+
+.compare-panel{
+  background: rgba(43, 7, 67, 0.35);
+  border: 1px solid rgba(87, 1, 87, 0.75);
+  border-radius: 12px;
+  padding: 16px;
+  color: white;
+  margin-top: 62px;
+}
+
+.compare-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 12px;
+}
+
+.compare-chips button{
+  border-radius: 10px;
+  padding: 6px 8px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.25);
+  color: white;
+  cursor: pointer;
+}
+
+.compare-table{
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+}
+
+.row{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 1fr);
+}
+
+.row.head{
+  position: sticky;
+  top: 0;
+  background: rgba(15,15,15,0.95);
+}
+
+.cell{
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  border-right: 1px solid rgba(255,255,255,0.10);
+}
+
+.cell.label{
+  min-width: 160px;
+  font-weight: 700;
+}

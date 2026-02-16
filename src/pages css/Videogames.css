@@ -1,27 +1,28 @@
 .allgames {
-    padding-top: 120px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 70px;
-    min-height: 100vh;
-    background:
-        linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
-        url('/aloy.avif');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  padding-top: 120px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 70px;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
+    url('/aloy.avif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .allgames h1 {
-    font-size: 45px;
+  font-size: 45px;
 }
 
 .cards {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  gap: 20px;
+  padding-top: 30px;
 }
 
 .allgames p {
@@ -29,15 +30,15 @@
 }
 
 /* input per searchbar */
-.search-input{
+.search-input {
   width: min(520px, 100%);
   height: 44px;
 
   padding: 10px 14px;
   border-radius: 12px;
 
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.35);
   color: #fff;
 
   font-size: 18px;
@@ -45,60 +46,60 @@
   transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
-.search-input::placeholder{
-  color: rgba(255,255,255,0.55);
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.search-input:focus{
+.search-input:focus {
   border-color: rgba(160, 120, 255, 0.75);
   box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
 }
 
-.search-input:hover{
-  border-color: rgba(255,255,255,0.28);
+.search-input:hover {
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 /* select */
-.select-wrap{
+.select-wrap {
   display: inline-block;
   position: relative;
   margin-left: 12px;
 }
 
-.select-wrap select{
+.select-wrap select {
   width: min(260px, 100%);
   height: 44px;
   padding: 10px 14px;
   border-radius: 12px;
 
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.35);
   color: #fff;
 
   font-size: 16px;
   cursor: pointer;
 }
 
-.select-wrap select:hover{
-  border-color: rgba(255,255,255,0.28);
+.select-wrap select:hover {
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
-.select-wrap select:focus{
+.select-wrap select:focus {
   outline: none;
   border-color: rgba(160, 120, 255, 0.75);
   box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
 }
 
 /* bttone per l ordinamento a-z */
-.sort-btn{
+.sort-btn {
   height: 44px;
   padding: 10px 14px;
   margin-left: 12px;
 
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.35);
   color: #fff;
 
   font-size: 16px;
@@ -107,20 +108,17 @@
   transition: border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .05s ease;
 }
 
-.sort-btn:hover{
-  border-color: rgba(255,255,255,0.28);
-  background: rgba(0,0,0,0.45);
+.sort-btn:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.45);
 }
 
-.sort-btn:active{
+.sort-btn:active {
   transform: translateY(1px);
 }
 
-.sort-btn:focus{
+.sort-btn:focus {
   outline: none;
   border-color: rgba(160, 120, 255, 0.75);
   box-shadow: 0 0 0 3px rgba(160, 120, 255, 0.25);
 }
-
-
-
