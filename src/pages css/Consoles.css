@@ -1,0 +1,17 @@
+.allconsoles {
+  padding-top: 120px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 70px;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, .50), rgba(0, 0, 0, .50)),
+    url('/consoles.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.allconsoles h1 {
+  font-size: 45px;
+}

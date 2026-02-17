@@ -20,13 +20,8 @@ function NavBar() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/popular-videogames" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
+                        <NavLink to="/consoles" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
                             Console più popolari
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contattaci" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>
-                            Contattaci
                         </NavLink>
                     </li>
                 </ul>
