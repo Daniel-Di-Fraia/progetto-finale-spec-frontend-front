@@ -14,10 +14,16 @@ const VideogamesProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     //funzione per chiamata api di tutti i giochi
-    async function fetchVideogames() {
+    //accetta filtro opzionale
+    async function fetchVideogames(category = null) {
 
         try {
-            const response = await fetch(`${url}/videogames`);
+            //costruisco l endpoint in base al genere (categoria)
+            const endpoint = category
+                ? `${url}/videogames?category=${encodeURIComponent(category)}`
+                : `${url}/videogames`;
+
+            const response = await fetch(endpoint);
             if (!response.ok) {
                 throw new Error('errore nel caricamento dei dati');
             }
@@ -40,7 +46,7 @@ const VideogamesProvider = ({ children }) => {
     return (
         <VideogamesContext.Provider
             // dati resi disponibili 
-            value={{ videogames }}>
+            value={{ videogames, fetchVideogames }}>
             {/* componenti figli inclusi dal provider */}
             {children}
         </VideogamesContext.Provider>

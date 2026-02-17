@@ -27,7 +27,7 @@ function ConfirmModal({ open, title, message, confirmText, cancelText, onConfirm
 }
 
 export function ConfirmProvider({ children }) {
-  // stato UI della modale
+  //stato UI della modale
   const [state, setState] = useState({
     open: false,
     title: "Conferma",
@@ -36,10 +36,10 @@ export function ConfirmProvider({ children }) {
     cancelText: "Annulla",
   });
 
-  // tengo in ref la resolve della Promise (così non perde valore tra render)
+  //tengo in ref la resolve della Promise (così non perde valore tra render)
   const resolverRef = useRef(null);
 
-  // funzione globale: apre la modale e ritorna una Promise<boolean>
+  //funzione globale: apre la modale e ritorna una Promise<boolean>
   const confirm = useCallback(({ title, message, confirmText, cancelText } = {}) => {
     setState({
       open: true,
@@ -57,7 +57,7 @@ export function ConfirmProvider({ children }) {
   const handleClose = useCallback((result) => {
     setState((s) => ({ ...s, open: false }));
     if (resolverRef.current) {
-      resolverRef.current(result); // true o false
+      resolverRef.current(result);//true o false
       resolverRef.current = null;
     }
   }, []);

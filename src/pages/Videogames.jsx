@@ -2,10 +2,13 @@
 import { useVideogames } from "../context/VideogamesContext";
 
 //importo useMemo e useState da react
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 
 //importiamo il componente videogamecard per giochi singoli 
 import VideogameCard from "../components/VideogameCard";
+
+//leggo il parametro della query dall url
+import { useSearchParams } from "react-router-dom";
 
 //importo il relativo css
 import '../pages css/Videogames.css'
@@ -29,11 +32,22 @@ function Videogames() {
   //variabile di stato per ricerca
   const [search, setSearch] = useState("");
 
+  //debounce per ricerca, cosi mentre l utente scrive fa la chiamata dopo 500ms, quando l utente smette di scrivere
   const debounceSearch = useCallback(debounce(setSearch, 500), []);
 
-  //variabile di stato per filtro categoria
-  const [category, setCategory] = useState("")
+  //prendo category dell url
+  const [params, setParams] = useSearchParams();
+  const categoryFromUrl = (params.get("category") || "");
 
+  //variabile di stato per filtro categoria
+  const [category, setCategory] = useState(categoryFromUrl);
+
+  //se cambia l url, aggiorno lo stato
+  useEffect(() => {
+    setCategory(categoryFromUrl);
+  }, [categoryFromUrl]);
+
+  //al cambiare della select cambio anche l url
   const categoryChange = (e) => {
     setCategory(e.target.value);
   }
@@ -89,11 +103,11 @@ function Videogames() {
           <span className="select-wrap">
             <select value={category} onChange={categoryChange}>
               <option value="">-Scegli genere-</option>
-              <option value="soulslike">Soulslike</option>
-              <option value="rpg">RPG</option>
-              <option value="action">Action</option>
-              <option value="platform">Platform</option>
-              <option value="metroidvania">Metroidvania</option>
+              <option value="Soulslike">Soulslike</option>
+              <option value="RPG">RPG</option>
+              <option value="Action">Action</option>
+              <option value="Platform">Platform</option>
+              <option value="Metroidvania">Metroidvania</option>
             </select>
           </span>
 

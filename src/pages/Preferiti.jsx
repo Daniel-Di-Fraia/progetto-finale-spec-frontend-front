@@ -70,7 +70,7 @@ export default function FavoritesPage() {
 
   //quando cambiano i compareIds, scarico i dettagli mancanti e aggiorno comparedGames
   useEffect(() => {
-    // se non ho selezionati, resetto tabella/stati
+    //se non ho selezionati, resetto tabella/stati
     if (compareIds.length === 0) {
       setComparedGames([]);
       setIsLoadingCompare(false);
