@@ -10,6 +10,9 @@ import { useFavoriteVideogames } from "../context/FavoriteVideogamesContext";
 //importo il relativo css
 import "../pages css/VideogameDetails.css"
 
+//importo context della modale
+import { useConfirm } from "../context/ModalContext";
+
 // richiamo variabile di ambiente
 const url = import.meta.env.VITE_API_URL;
 
@@ -29,6 +32,9 @@ const VideogameDetails = () => {
 
   // Uso l'hook del context dei preferiti
   const { isFavorite, toggleFavorite } = useFavoriteVideogames();
+
+  //uso il context per la modale di conferma
+  const { confirm } = useConfirm();
 
 
   //funzione per la chiamata al singolo gioco
@@ -63,6 +69,25 @@ const VideogameDetails = () => {
   if (error) return <h1>Errore: {error}</h1>;
   if (!videogame) return <h1>Gioco non trovato!</h1>;
 
+  const onHeartClick = async (gameId) => {
+    const id = Number(gameId);
+    const isAlreadyFav = isFavorite(id);
+
+    if (!isAlreadyFav) {
+      toggleFavorite(id);
+      return;
+    }
+
+    const ok = await confirm({
+      title: "Conferma rimozione",
+      message: "Vuoi rimuovere questo gioco dai preferiti?",
+      confirmText: "Rimuovi",
+      cancelText: "Annulla",
+    });
+
+    if (ok) toggleFavorite(id);
+  };
+
   return (
     <>
       <section
@@ -87,7 +112,7 @@ const VideogameDetails = () => {
               <p><strong>Valutazione:</strong> {videogame.review}</p>
               <p><strong>Data di rilascio:</strong> {videogame.releaseDate}</p>
               <p className="add-it"><strong>Aggiungilo ai preferiti!</strong></p>
-              <button id="add-preferiti" onClick={() => toggleFavorite(videogame.id)}>
+              <button id="add-preferiti" onClick={() => onHeartClick(videogame.id)}>
                 {isFavorite(videogame.id) ? "❤️" : "🤍"}
               </button>
             </div>

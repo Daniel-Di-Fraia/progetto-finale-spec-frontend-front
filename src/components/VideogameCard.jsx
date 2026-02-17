@@ -18,26 +18,27 @@ const VideogameCard = memo(function VideogameCard({ game }) {
     // Uso l'hook del context dei preferiti
     const { isFavorite, toggleFavorite } = useFavoriteVideogames();
 
+    //uso il context per la modale di conferma
     const { confirm } = useConfirm();
 
-  const onHeartClick = async (gameId) => {
-    const id = Number(gameId);
-    const isAlreadyFav = isFavorite(id);
+    const onHeartClick = async (gameId) => {
+        const id = Number(gameId);
+        const isAlreadyFav = isFavorite(id);
 
-    if (!isAlreadyFav) {
-      toggleFavorite(id);
-      return;
-    }
+        if (!isAlreadyFav) {
+            toggleFavorite(id);
+            return;
+        }
 
-    const ok = await confirm({
-      title: "Conferma rimozione",
-      message: "Vuoi rimuovere questo gioco dai preferiti?",
-      confirmText: "Rimuovi",
-      cancelText: "Annulla",
-    });
+        const ok = await confirm({
+            title: "Conferma rimozione",
+            message: "Vuoi rimuovere questo gioco dai preferiti?",
+            confirmText: "Rimuovi",
+            cancelText: "Annulla",
+        });
 
-    if (ok) toggleFavorite(id);
-  };
+        if (ok) toggleFavorite(id);
+    };
 
     return (
         <>
