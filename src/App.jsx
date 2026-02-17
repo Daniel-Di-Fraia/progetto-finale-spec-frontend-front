@@ -19,28 +19,33 @@ import { VideogamesProvider } from './context/VideogamesContext';
 //importiamo il provider per i preferiti
 import { FavoriteVideogamesProvider } from './context/FavoriteVideogamesContext';
 
+//importiamo il provider per la modale di conferma
+import { ConfirmProvider } from "./context/ModalContext";
+
 function App() {
 
 
   return (
     <>
-      {/* avvolgo tutto app con i provider per rendere disponibili i dati in context */}
-      <FavoriteVideogamesProvider>
-        <VideogamesProvider>
-          {/* rotte applicazione */}
-          <BrowserRouter>
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/videogames" element={<Videogames />} />
-              <Route path="/videogames/:id" element={<VideogameDetails />} />
-              <Route path="/popular-videogames" element={<PopularVideogames />} />
-              <Route path="/contattaci" element={<Contattaci />} />
-              <Route path="/preferiti" element={<Preferiti />} />
-            </Routes>
-          </BrowserRouter>
-        </VideogamesProvider>
-      </FavoriteVideogamesProvider>
+      {/* avvolgo tutto app con i provider per rendere disponibili i dati nei context */}
+      <ConfirmProvider>
+        <FavoriteVideogamesProvider>
+          <VideogamesProvider>
+            {/* rotte applicazione */}
+            <BrowserRouter>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/videogames" element={<Videogames />} />
+                <Route path="/videogames/:id" element={<VideogameDetails />} />
+                <Route path="/popular-videogames" element={<PopularVideogames />} />
+                <Route path="/contattaci" element={<Contattaci />} />
+                <Route path="/preferiti" element={<Preferiti />} />
+              </Routes>
+            </BrowserRouter>
+          </VideogamesProvider>
+        </FavoriteVideogamesProvider>
+      </ConfirmProvider>
     </>
   )
 }

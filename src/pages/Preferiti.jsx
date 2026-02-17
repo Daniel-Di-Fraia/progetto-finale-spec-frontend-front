@@ -7,6 +7,8 @@ import { useVideogames } from "../context/VideogamesContext";
 import { useEffect, useMemo, useRef, useState } from "react";
 //importo il relativo css
 import "../pages css/Preferiti.css";
+//importo context della modale
+import { useConfirm } from "../context/ModalContext";
 
 //base url API
 const url = import.meta.env.VITE_API_URL;
@@ -124,6 +126,27 @@ export default function FavoritesPage() {
     };
   }, [compareIds]);
 
+  const { confirm } = useConfirm();
+
+  const onHeartClick = async (gameId) => {
+    const id = Number(gameId);
+    const isAlreadyFav = favoriteIds.includes(id);
+
+    if (!isAlreadyFav) {
+      toggleFavorite(id);
+      return;
+    }
+
+    const ok = await confirm({
+      title: "Conferma rimozione",
+      message: "Vuoi rimuovere questo gioco dai preferiti?",
+      confirmText: "Rimuovi",
+      cancelText: "Annulla",
+    });
+
+    if (ok) toggleFavorite(id);
+  };
+
   return (
     <section className="bkg-prefe">
       <div className="container pad-prefe">
@@ -167,7 +190,7 @@ export default function FavoritesPage() {
                         <button
                           id="prefe-btn"
                           type="button"
-                          onClick={() => toggleFavorite(game.id)}
+                          onClick={() => onHeartClick(game.id)}
                           aria-label="Rimuovi dai preferiti"
                         >
                           ❤️

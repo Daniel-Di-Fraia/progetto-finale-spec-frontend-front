@@ -10,10 +10,34 @@ import { Link } from 'react-router-dom';
 //import del context per i preferiti
 import { useFavoriteVideogames } from "../context/FavoriteVideogamesContext";
 
+//importo context della modale
+import { useConfirm } from "../context/ModalContext";
+
 const VideogameCard = memo(function VideogameCard({ game }) {
 
     // Uso l'hook del context dei preferiti
     const { isFavorite, toggleFavorite } = useFavoriteVideogames();
+
+    const { confirm } = useConfirm();
+
+  const onHeartClick = async (gameId) => {
+    const id = Number(gameId);
+    const isAlreadyFav = isFavorite(id);
+
+    if (!isAlreadyFav) {
+      toggleFavorite(id);
+      return;
+    }
+
+    const ok = await confirm({
+      title: "Conferma rimozione",
+      message: "Vuoi rimuovere questo gioco dai preferiti?",
+      confirmText: "Rimuovi",
+      cancelText: "Annulla",
+    });
+
+    if (ok) toggleFavorite(id);
+  };
 
     return (
         <>
@@ -30,7 +54,7 @@ const VideogameCard = memo(function VideogameCard({ game }) {
                             onClick={(e) => {
                                 e.preventDefault();
                                 e.stopPropagation();
-                                toggleFavorite(game.id);
+                                onHeartClick(game.id);
                             }}
                         >
                             {isFavorite(game.id) ? "❤️" : "🤍"}
