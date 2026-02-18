@@ -39,9 +39,9 @@ body {
 
 .modal-card {
   width: min(620px, 94vw);
-  background: rgba(43, 7, 67, 0.82);
+  background: rgba(20, 3, 31, 0.92);
 
-  border: 1px solid rgba(87, 1, 87, 0.85);
+  border: 1px solid rgba(103, 0, 103, 0.85);
   border-radius: 16px;
 
   padding: 22px;

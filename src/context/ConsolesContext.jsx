@@ -49,6 +49,11 @@ const ConsolesProvider = ({ children }) => {
 
 const useConsoles = () => {
     const context = useContext(ConsolesContext);
+    if (!context) {
+        throw new Error(
+            "useConsoles deve essere usato dentro <useConsoles>"
+        );
+    }
     return context;
 };
 

@@ -126,8 +126,10 @@ export default function FavoritesPage() {
     };
   }, [compareIds]);
 
+  //uso il context per la modale di conferma
   const { confirm } = useConfirm();
 
+  //funzione per rimozione gioco dai preferiti tramite modale di conferma
   const onHeartClick = async (gameId) => {
     const id = Number(gameId);
     const isAlreadyFav = favoriteIds.includes(id);

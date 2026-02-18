@@ -73,6 +73,7 @@ const VideogameDetails = () => {
   if (error) return <h1>Errore: {error}</h1>;
   if (!videogame) return <h1>Gioco non trovato!</h1>;
 
+  //funzione per rimozione gioco dai preferiti tramite modale di conferma
   const onHeartClick = async (gameId) => {
     const id = Number(gameId);
     const isAlreadyFav = isFavorite(id);

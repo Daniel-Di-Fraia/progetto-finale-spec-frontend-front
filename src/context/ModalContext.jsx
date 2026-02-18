@@ -1,4 +1,7 @@
+//importo da react
 import { createContext, useContext, useRef, useState, useCallback } from "react";
+
+//importo create portal 
 import { createPortal } from "react-dom";
 
 const ConfirmContext = createContext(null);
@@ -6,6 +9,7 @@ const ConfirmContext = createContext(null);
 function ConfirmModal({ open, title, message, confirmText, cancelText, onConfirm, onCancel }) {
   if (!open) return null;
 
+  //uso createPortal per renderizzare il modal direttamente in document.body così resta sopra a tutto
   return createPortal(
     <div className="modal-backdrop" onClick={onCancel}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
@@ -54,6 +58,7 @@ export function ConfirmProvider({ children }) {
     });
   }, []);
 
+  //handleClose chiude il modal di conferma. se c’è una Promise in attesa, la risolve passando all’utente un booleano, poi pulisce il resolver
   const handleClose = useCallback((result) => {
     setState((s) => ({ ...s, open: false }));
     if (resolverRef.current) {
@@ -66,13 +71,17 @@ export function ConfirmProvider({ children }) {
     <ConfirmContext.Provider value={{ confirm }}>
       {children}
 
+      {/* Il modal è montato "globalmente" una sola volta */}
       <ConfirmModal
         open={state.open}
         title={state.title}
         message={state.message}
         confirmText={state.confirmText}
         cancelText={state.cancelText}
+
+        //se l'utente conferma, chiudi il modal e risolvi la "promessa" con true
         onConfirm={() => handleClose(true)}
+        //se l'utente annulla, chiudi il modal e risolvi la "promessa" con false
         onCancel={() => handleClose(false)}
       />
     </ConfirmContext.Provider>

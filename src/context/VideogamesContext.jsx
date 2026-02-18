@@ -55,6 +55,11 @@ const VideogamesProvider = ({ children }) => {
 
 const useVideogames = () => {
     const context = useContext(VideogamesContext);
+    if (!context) {
+        throw new Error(
+            "useVideogames deve essere usato dentro <useVideogames>"
+        );
+    }
     return context;
 };
 
