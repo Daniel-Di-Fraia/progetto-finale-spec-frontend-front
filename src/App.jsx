@@ -12,6 +12,7 @@ import Consoles from './pages/Consoles';
 import Preferiti from './pages/Preferiti';
 import VideogameDetails from './pages/VideogameDetails';
 import ConsoleDetails from './pages/ConsoleDetails';
+import NotFound from './pages/NotFound';
 
 //importiamo il provider della chiamata dei giochi
 import { VideogamesProvider } from './context/VideogamesContext';
@@ -45,6 +46,8 @@ function App() {
                   <Route path="/consoles" element={<Consoles />} />
                   <Route path="/consoles/:id" element={<ConsoleDetails />} />
                   <Route path="/preferiti" element={<Preferiti />} />
+                  <Route path="/404" element={<NotFound />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </BrowserRouter>
             </VideogamesProvider>

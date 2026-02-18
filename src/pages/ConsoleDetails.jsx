@@ -1,5 +1,5 @@
 // import dell'hook per il parametro
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 //import di useEffect e UseState
 import { useState, useEffect } from "react";
@@ -11,6 +11,9 @@ const ConsoleDetails = () => {
 
     // recuperiamo (id) tramite il parametro dinamico
     const { id } = useParams();
+
+    //navigate per rotta errore
+    const navigate = useNavigate();
 
     //variabile di stato per chiamata singola console
     const [singleConsole, setSingleConsole] = useState(null);
@@ -31,7 +34,8 @@ const ConsoleDetails = () => {
         try {
             const response = await fetch(`${url}/consoles/${id}`);
             if (!response.ok) {
-                throw new Error('errore nel caricamento dei dati');
+                navigate("/404", { replace: true });
+                return;
             }
             const con = await response.json();
             console.log("Dati ricevuti dall'API:", con.console);

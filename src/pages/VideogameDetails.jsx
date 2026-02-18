@@ -1,5 +1,5 @@
 // import dell'hook per il parametro
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 //import di useEffect e UseState
 import { useState, useEffect } from "react";
@@ -20,6 +20,9 @@ const VideogameDetails = () => {
 
   // recuperiamo (id) tramite il parametro dinamico
   const { id } = useParams();
+
+  //navigate per rotta errore
+  const navigate = useNavigate();
 
   //variabile di stato per chiamata singolo gioco
   const [videogame, setVideogame] = useState(null);
@@ -46,7 +49,8 @@ const VideogameDetails = () => {
     try {
       const response = await fetch(`${url}/videogames/${id}`);
       if (!response.ok) {
-        throw new Error('errore nel caricamento dei dati');
+        navigate("/404", { replace: true });
+        return;
       }
       const gioco = await response.json();
       console.log("Dati ricevuti dall'API:", gioco.videogame);
