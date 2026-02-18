@@ -27,6 +27,7 @@
   transition: opacity .25s ease;
   z-index: 0;
   pointer-events: none;
+  border-radius: 16px;
 }
 
 .single-card > *{
@@ -50,10 +51,12 @@
   transform: translateY(-11px);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.40);
   border-color: rgba(180, 140, 255, 0.28);
+  border-radius: 16px;
 }
 
 .single-card:hover::before {
   opacity: 1;
+  border-radius: 16px;
 }
 
 #prefe-btn {
